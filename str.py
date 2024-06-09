@@ -173,29 +173,7 @@ expansions = {'Goblins vs Gnomes': "08/12/2014", 'The Grand Tournament': "24/08/
 for key in expansions:
     expansions[key] = pd.to_datetime(expansions[key], format = "%d/%m/%Y")
 
-@st.cache_data
-def get_card_changes_data():
-    card_changes_timestamps = []
 
-    URL = "https://hearthstone.fandom.com/wiki/Patches#List_of_patches"
-    page = requests.get(URL)
-
-    page_content = page.text
-    soup = BeautifulSoup(page_content, 'lxml')
-
-    patches = soup.find_all('tr')  #во всем документе ровно одна таблица, её table rows – патчи.
-
-    for patch in patches[1:]:
-        try:
-            table_data_list = patch.find('td', class_ = "text").find_all()
-    
-            if any([x.string == 'Card changes' for x in table_data_list]):
-                card_changes_timestamps.append(pd.to_datetime(patch.find_all('td')[2].string))   #В таблице третьей колонкой идут даты
-        except:
-            continue
-    return(card_changes_timestamps)
-
-card_changes_timestamps = get_card_changes_data()
 fig = plt.figure(figsize=(10, 5))
 plt.plot(decks_per_day['creation_date'], decks_per_day['count'], marker='o', linestyle='', alpha = 0.7, markersize=5)
 plt.xlabel('Дата')
@@ -205,9 +183,7 @@ plt.grid(axis='y')
 plt.xticks(rotation=45)
 
 last_date_observed = df.iloc[df.shape[0] - 1, 7]
-for change in card_changes_timestamps:
-    if change < last_date_observed:  # Выводим только то, что относится к данным, которые мы успели (sic!) скачать
-        plt.axvline(change, color = 'grey', alpha = 0.3)
+
 
 for adventure in adventures:
     if adventures[adventure] < last_date_observed:  
