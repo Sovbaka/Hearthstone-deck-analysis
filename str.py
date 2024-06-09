@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import json
 import requests
 import html
-from bs4 import BeautifulSoup
 import plotly.express as px
 
 @st.cache_data
