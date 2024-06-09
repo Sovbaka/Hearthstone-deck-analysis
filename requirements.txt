@@ -1,9 +1,8 @@
 streamlit 
 pandas 
 matplotlib 
-matplotlib.pyplot 
 json
 requests
 html
 bs4 
-plotly.express 
+plotly 
