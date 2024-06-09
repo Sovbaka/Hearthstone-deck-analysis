@@ -1,8 +1,5 @@
 streamlit 
 pandas 
 matplotlib 
-json
-requests
-html
 bs4 
 plotly 
