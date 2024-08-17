@@ -14,5 +14,5 @@
 - Визуализация данных, которая если и не сложная, то приятная глазу
 - Приложение Streamlit, которое запускается (вот [видео](https://drive.google.com/file/d/1adAAO_PUg3Wq7X3SK_fbQUmq1AHCocyw/view?usp=sharing)) локально, но которое наотрез отказывается быть опубликованным, вероятно из-за того, что начинается его работа с прочтения одного гигабайта данных.
 
-*Примечание:* github (и почему-то nbviewer) не отображает графики во второй части ноутбука Analitycs, но они видны, если его скачать вместе с DataTable.csv и запустить
+*Примечание:* графики из второй части ноутбука Analitycs можно посмотреть [здесь](https://nbviewer.org/github/Sovbaka/Hearthstone-deck-analysis/blob/main/.ipynb_checkpoints/Analytics-checkpoint.ipynb)
 
